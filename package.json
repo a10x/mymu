@@ -4,14 +4,23 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite build && neu run",
-    "build": "vite build",
+    "build": "vite build --watch",
+    "lint": "eslint ./src/**/*.ts{,x}",
     "preview": "vite preview"
   },
   "dependencies": {
-    "preact": "^10.5.15"
+    "preact": "^10.5.15",
+    "react-colorful": "^5.5.1"
   },
   "devDependencies": {
     "@preact/preset-vite": "^2.1.5",
-    "vite": "^2.9.0"
+    "@typescript-eslint/eslint-plugin": "^5.19.0",
+    "@typescript-eslint/parser": "^5.19.0",
+    "eslint": "^8.13.0",
+    "eslint-config-preact": "^1.3.0",
+    "nodemon": "^2.0.15",
+    "typescript": "^4.6.3",
+    "vite": "^2.9.0",
+    "vite-plugin-eslint": "^1.4.0"
   }
 }

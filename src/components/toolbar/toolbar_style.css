@@ -1,0 +1,55 @@
+:root{
+	--barHeight: 48px;
+	--barWidth: 700px;
+}
+
+.canvasToolbar{
+	background: #2C2C2F;
+	width: 700px;
+	height: var(--barHeight);
+	border-radius: 8px;
+	border: 1px solid black;
+	display: flex;
+	align-items: center;
+	margin: 50px auto;
+}
+
+.vl{
+	height: 38px;
+	border-left: 2px solid grey;
+	padding: 0;
+}
+
+.tools{
+	display: flex;
+	align-items: center;
+}
+
+.canvasTool > img{
+	margin: auto;
+	display: block;
+}
+
+.canvasTool{
+	padding: 4px 6px;
+	margin: 0;
+	margin-left: 8px;
+	margin-right: 8px;
+	border-radius: 4px;
+}
+
+.canvasTool:hover{
+	background: #37383C;
+	cursor: pointer;
+}
+
+.toolProperties{
+	flex: 1;
+	display: flex;
+	align-items: center;
+}
+
+.toolProperty{
+	margin-left: 8px;
+	margin-right: 8px;
+}

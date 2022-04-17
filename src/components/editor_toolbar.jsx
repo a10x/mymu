@@ -1,9 +1,0 @@
-function EditorToolbar(props){
-
-	return (
-		<>
-			
-		</>
-	);
-
-}
