@@ -1,6 +1,6 @@
 import {useRef, useEffect} from "preact/hooks";
 
-import "./canvas_style.css"
+import "./canvas_style.css";
 
 export function EditorCanvas(props){
 
@@ -18,7 +18,7 @@ export function EditorCanvas(props){
 
 	return (
 		<>
-			<canvas id="canvas" style="margin-left:30%; margin-top:10%;" ref={canvasRef} width="600" height="600"></canvas>
+			<canvas id="canvas" style="margin-left:30%; margin-top:10%;" ref={canvasRef} width="600" height="600" />
 		</>
 	);
 }

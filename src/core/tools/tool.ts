@@ -1,19 +1,11 @@
-export class Tool{
+interface ToolProperties{[key: string]: any;}
 
-	constructor(name:string, displayName:string, properties=[]){
-		this.name = name;
-		this.displayName = displayName;
-		this.properties = properties;
-	}
+export class ToolProperty<T>{
+	private name: string;
+	private displayName: string;
+	private value: T;
 
-	getName(){return this.name;}
-	getDisplayName(){return this.displayName;}
-	getProperties(){return this.properties;}
-	getProperty(key){return this.properties[key];}
-}
-
-export class ToolProperty{
-	constructor(name, displayName, value){
+	constructor(name:string, displayName:string, value:T){
 		this.name = name;
 		this.displayName = displayName;
 		this.value = value;
@@ -22,7 +14,22 @@ export class ToolProperty{
 	getName(){return this.name;}
 	getDisplayName(){return this.displayName;}
 	getValue(){return this.value;}
+	setValue(value:T){this.value=value;}
+}
 
-	setValue(value){this.value = value;}
+export class Tool{
+	private name: string;
+	private displayName: string;
+	private properties: ToolProperties ;
 
+	constructor(name:string, displayName:string, properties:ToolProperties={}){
+		this.name = name;
+		this.displayName = displayName;
+		this.properties = properties;
+	}
+
+	getName(){return this.name;}
+	getDisplayName(){return this.displayName;}
+	getProperties(){return this.properties;}
+	getProperty<T>(key: string): ToolProperty<T>{return this.properties[key];}
 }

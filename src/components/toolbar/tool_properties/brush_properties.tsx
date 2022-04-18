@@ -1,3 +1,4 @@
+import {h, FunctionalComponent } from "preact";
 import { useEffect, useState } from "preact/hooks";
 
 import { FloatingColourPicker } from "../../utils/colour_picker";
@@ -5,9 +6,11 @@ import { FloatingColourPicker } from "../../utils/colour_picker";
 import {rgbaToCssString} from "./utils";
 
 import "./brush_properties.css";
+import { Tool } from "../../../core/tools/tool";
+import { RgbaColour } from "../../../core/tools/utils";
 
-export const BrushColourProperty = (props)=>{
-	const property = props.tool.getProperty("COLOUR");
+export const BrushColourProperty: FunctionalComponent<{tool: Tool}> = (props)=>{
+	const property = props.tool.getProperty<RgbaColour>("COLOUR");
 	const [colour, setColour] = useState(property.getValue());
 	const [showPicker, setShowPicker] = useState(false);
 
@@ -24,14 +27,9 @@ export const BrushColourProperty = (props)=>{
 	);
 };
 
-export const BrushTestProperty = (props)=>{
-
-	return (
-		<div style="background: blue; width:32px; height:32px;">{console.log("property")}</div>
-	);
-};
-
-export const BrushSizeProperty = (props)=>{
+export const BrushSizeProperty: FunctionalComponent<{tool: Tool}> = (props)=>{
+	const property = props.tool.getProperty<number>("COLOUR");
+	const [size, setSize] = useState(property.getValue());
 
 	return (
 		<div class="brushSizeProp" />

@@ -1,4 +1,4 @@
-function EditorScreen(props){
+export const EditorScreen = (props: any) =>{
 
 	return (
 		<>
@@ -6,4 +6,4 @@ function EditorScreen(props){
 		</>
 	);
 
-}
+};
