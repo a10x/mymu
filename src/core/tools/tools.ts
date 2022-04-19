@@ -6,7 +6,7 @@ export const Tools = {
 	BRUSH_TOOL: new Tool("brush_tool", "Brush",
 		{
 			COLOUR: new ToolProperty<RgbaColour>("colour_property", "Colour", new RgbaColour(255, 0, 20)),
-			SIZE: new ToolProperty<number>("size_property", "Size", 3) 
+			SIZE: new ToolProperty<number>("size_property", "Size", 20) 
 		}),
 	PEN_TOOL: new Tool("pen_tool", "Pen")
 };

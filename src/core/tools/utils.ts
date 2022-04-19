@@ -11,3 +11,7 @@ export class RgbaColour{
 		this.a = a;
 	}
 }
+
+export const scaleValue = (value: number, oldMin: number, oldMax: number, newMin: number, newMax: number)=> {
+	return (value - oldMin) / (oldMax-oldMin) * (newMax - newMin) + newMin;
+};
