@@ -1,22 +1,55 @@
-.brushColourProp{
-	position: relative;
-	width: 32px;
-	height: 32px;
+.brush-colour-prop{
+	width: 100%;
+	height: 100%;
 	background-image: url(./../../../images/checkered_pattern.png);
 	background-size: cover;
+	border: 1px solid white;
 	border-radius: 4px;
 	cursor: pointer;
-	border: 1px solid white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+}
+.brush-colour-prop .colour-square{
+	width: 100%;
+	height: 100%;
+	border-radius: 4px;
 }
 
-.colourSquare{
-	width: 30px;
-	height: 30px;
-	border-radius: 4px;
+.brush-colour-palette{
+	width: fit-content;
+	height: 32px;
+	display: flex;
+	align-items: center;
+	
+}
+
+.brush-colour-palette .palette-colour{
+	width: 32px;
+	height: 32px;
+	margin: 3px;
+}
+
+.brush-colour-palette .palette-colour.selected{
+	width: 28px;
+	height: 28px;
 }
 
 .brushSizeProp{
-	width: 120px;
-	height: 32px;
-	
+	width: fit-content;
+	height: inherit;
+	display: flex;
+	align-items: center;
 }
+
+.brushSizeProp .brush-slider{
+	width: 120px;
+}
+
+.brushSizeProp .size-text{
+	font-size: small;
+	margin-left: 10px;
+	width: 20px;
+}
+

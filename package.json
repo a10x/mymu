@@ -9,11 +9,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "fabric": "^5.2.1",
     "preact": "^10.5.15",
     "react-colorful": "^5.5.1"
   },
   "devDependencies": {
     "@preact/preset-vite": "^2.1.5",
+    "@types/fabric": "^4.5.7",
     "@typescript-eslint/eslint-plugin": "^5.19.0",
     "@typescript-eslint/parser": "^5.19.0",
     "eslint": "^8.13.0",

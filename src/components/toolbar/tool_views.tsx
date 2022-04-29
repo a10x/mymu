@@ -4,7 +4,7 @@ import { Tools } from "../../core/tools/tools";
 
 import brushIcon from "../../images/paint-brush.png";
 import pointerIcon from "../../images/pointer.png";
-import { BrushColourProperty, BrushSizeProperty} from "./tool_properties/brush_properties";
+import { BrushColourPalette, BrushColourProperty, BrushSizeProperty} from "./tool_properties/brush_properties";
 
 type PropsViewFn = FunctionComponent<{tool: Tool}>;
 
@@ -29,7 +29,7 @@ class ToolViewHolder{
 	getPropView(index: number){return this.propsViews[index];}
 }
 
-export const ToolViews = [new ToolViewHolder(Tools.POINTER_TOOL, pointerIcon)];
+export const ToolViews = [new ToolViewHolder(Tools.POINTER_TOOL, pointerIcon, [])];
 ToolViews.push(new ToolViewHolder(Tools.BRUSH_TOOL, brushIcon, 
-	[BrushColourProperty, BrushColourProperty, BrushColourProperty, BrushSizeProperty]));
+				 [BrushColourPalette, BrushSizeProperty]));
 ToolViews.push(new ToolViewHolder(Tools.PEN_TOOL, brushIcon));

@@ -1,24 +1,29 @@
-import {useRef, useEffect} from "preact/hooks";
+import {h} from "preact";
+import {useRef, useEffect, useState} from "preact/hooks";
+
+import {fabric} from "fabric";
 
 import "./canvas_style.css";
+import { Canvas } from "../core/canvas";
 
-export function EditorCanvas(props){
+export const EditorCanvas = () =>{
 
-	const canvasRef = useRef(null);
-
+	const canvasRef = useRef<HTMLCanvasElement>(null);
+	const [size, setSize] = useState([600, 600]);
+	
 	useEffect(()=>{
 		if(!canvasRef.current) return;
-		console.log(canvasRef.current);
-		const canvas = new fabric.Canvas("canvas", {
-			width: canvasRef.current.clientWidth,
-			height: canvasRef.current.clientHeight,
-			backgroundColor: "lightgrey"
-		});
+
+		Canvas.init("canvas", canvasRef.current.clientWidth, canvasRef.current.clientHeight);
+		/*
+		const brush = new fabric.PencilBrush(Canvas.get().getFabric());
+		brush.width = 8;
+		Canvas.get().getFabric().freeDrawingBrush = brush;*/
 	});
 
 	return (
-		<>
-			<canvas id="canvas" style="margin-left:30%; margin-top:10%;" ref={canvasRef} width="600" height="600" />
-		</>
+		<div class="canvas-parent">
+			<canvas id="canvas" width={size[0]} height={size[1]}  ref={canvasRef} />
+		</div>
 	);
-}
+};

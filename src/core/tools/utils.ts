@@ -12,6 +12,8 @@ export class RgbaColour{
 	}
 }
 
+export const toRgbString = (colour: RgbaColour)=> `rgb(${colour.r}, ${colour.g}, ${colour.b})`; 
+
 export const scaleValue = (value: number, oldMin: number, oldMax: number, newMin: number, newMax: number)=> {
 	return (value - oldMin) / (oldMax-oldMin) * (newMax - newMin) + newMin;
 };

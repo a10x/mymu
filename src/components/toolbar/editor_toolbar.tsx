@@ -18,6 +18,7 @@ export const EditorToolbar: FunctionComponent = ()=>{
 	const onToolClick: ToolClickFn= (toolIndex: number)=>{
 		setCurTool(toolIndex);
 		setCurToolProps(ToolViews[toolIndex].getPropsViews());
+		ToolViews[toolIndex].getTool().callUseFn();
 	};
 
 	return (
@@ -34,7 +35,6 @@ export const EditorToolbar: FunctionComponent = ()=>{
 const CurrentPropsComponent: FunctionComponent<{toolIndex: number, properties:FunctionComponent<{tool: Tool}>[] }> = (props)=>{
 	return (
 		<div class="toolProperties">
-			{console.log(ToolViews[props.toolIndex].getTool().getProperties())}
 			{props.properties.map((ToolProperty, i) =>
 				<div key={i} class="toolProperty">
 					<ToolProperty tool={ToolViews[props.toolIndex].getTool()} />
