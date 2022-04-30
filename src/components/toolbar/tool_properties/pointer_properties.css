@@ -1,0 +1,22 @@
+.centred-icon-prop{
+	width: 32px;
+	height: 32px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.centred-icon-prop:hover{
+	background: #37383C;
+	cursor: pointer;	
+}
+
+.centred-icon-prop > img{
+	width: 100%;
+	height: 100%;
+}
+
+.centred-icon-prop:hover > img{
+	width: 80%;
+	height: 80%;
+}

@@ -1,0 +1,52 @@
+.gallery-item{
+	background-color: #2C2C2F;
+	width: 200px;
+	padding: 10px;
+	border-radius: 4px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	position: relative;
+	margin: 5px;
+ }
+ 
+ .gallery-item:active .item-overlay{
+	background-color: rgba(255, 255, 255, 0.15);
+ }
+ 
+ .item-overlay{
+	padding: 0;
+	margin: 0;
+	position: absolute;
+	background-color: transparent;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+ }
+
+ .image-parent{
+	 width: 180px;
+ }
+ 
+ .image-parent img{
+	border-radius: 4px;
+	height: 200px;
+	width: 100%;
+ }
+ 
+ .item-title{
+	border-radius: 4px;
+	color: white;
+	padding: 3px;
+	font-size: 0.5em;
+	width: 100%;
+	overflow: hidden;
+ }
+ 
+ .item-title h5{
+	margin: 0;
+	padding: 0;
+	padding-top: 10px;
+	padding-bottom: 10px;
+ }

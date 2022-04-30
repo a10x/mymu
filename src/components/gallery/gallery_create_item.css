@@ -1,0 +1,19 @@
+.gallery-create-item{
+	background-color: #2C2C2F;
+	width: 200px;
+	height: 250px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin: 5px;
+}
+
+.gallery-create-item .hr-line{
+	width: 100px;
+}
+
+.gallery-create-icon{
+	width: 64px;
+	cursor: pointer;
+}

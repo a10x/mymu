@@ -1,20 +1,16 @@
-import { useEffect } from "preact/hooks";
-import { EditorCanvas } from "./components/editor_canvas";
-import {EditorToolbar} from "./components/toolbar/editor_toolbar";
-import { Canvas } from "./core/canvas";
-import { SelectionMode } from "./core/canvas/canvas_modes";
+import { EditorScreen } from "./screens/editor_screen";
+import { GalleryScreen } from "./screens/gallery_screen";
 
-export function App(props: any) {
+import {Router} from "preact-router";
 
-	/*	useEffect(()=>{
-		Canvas.init("canvas");
-		Canvas.get().setMode(new SelectionMode());
-	},[]);*/
+export function App() {
 
 	return (
 		<>
-			<EditorToolbar />
-			<EditorCanvas />
+			<Router>
+				<GalleryScreen path="/" default />
+				<EditorScreen path="/edit/:file" file="null" />
+			</Router>
 		</>
 	);
 }

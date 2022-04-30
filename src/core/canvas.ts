@@ -20,8 +20,8 @@ export class Canvas{
 		if(!Canvas.canvas){
 			Canvas.canvas = new Canvas(elemId);
 			Canvas.get().brushes = new Brushes();
-			Canvas.get().getFabric().setWidth(400);
-			Canvas.get().getFabric().setHeight(250);
+			Canvas.get().getFabric().setWidth(200);
+			Canvas.get().getFabric().setHeight(200);
 			Canvas.get().getFabric().setBackgroundColor("lightgrey", ()=>{});
 		}
 

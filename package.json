@@ -11,6 +11,7 @@
   "dependencies": {
     "fabric": "^5.2.1",
     "preact": "^10.5.15",
+    "preact-router": "^4.0.1",
     "react-colorful": "^5.5.1"
   },
   "devDependencies": {

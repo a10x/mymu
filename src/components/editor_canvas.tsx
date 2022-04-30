@@ -1,4 +1,4 @@
-import {h} from "preact";
+import {FunctionComponent, h} from "preact";
 import {useRef, useEffect, useState} from "preact/hooks";
 
 import {fabric} from "fabric";
@@ -6,24 +6,26 @@ import {fabric} from "fabric";
 import "./canvas_style.css";
 import { Canvas } from "../core/canvas";
 
-export const EditorCanvas = () =>{
+export const EditorCanvas: FunctionComponent<{width: number, height: number, imageSrc: string}> = (props) =>{
 
 	const canvasRef = useRef<HTMLCanvasElement>(null);
-	const [size, setSize] = useState([600, 600]);
 	
 	useEffect(()=>{
+
 		if(!canvasRef.current) return;
 
+		console.log(props.imageSrc);
 		Canvas.init("canvas", canvasRef.current.clientWidth, canvasRef.current.clientHeight);
-		/*
-		const brush = new fabric.PencilBrush(Canvas.get().getFabric());
-		brush.width = 8;
-		Canvas.get().getFabric().freeDrawingBrush = brush;*/
+		Canvas.get().getFabric().setDimensions({width: props.width, height: props.height});
+		Canvas.get().getFabric().setBackgroundImage(props.imageSrc, Canvas.get().getFabric().renderAll.bind(Canvas.get().getFabric()), {
+			originX: "left",
+			originY: "top"
+		});
 	});
 
 	return (
 		<div class="canvas-parent">
-			<canvas id="canvas" width={size[0]} height={size[1]}  ref={canvasRef} />
+			<canvas id="canvas" width="200" height="200"  ref={canvasRef} />
 		</div>
 	);
 };

@@ -4,3 +4,4 @@ import "./index.css";
 
 const appElement = document.getElementById("app");
 if(appElement) render(<App />, appElement);
+window.Neutralino.init();
