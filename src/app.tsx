@@ -8,7 +8,7 @@ export function App() {
 	return (
 		<>
 			<Router>
-				<GalleryScreen path="/" default />
+				<GalleryScreen path="/gallery" default />	
 				<EditorScreen path="/edit/:file" file="null" />
 			</Router>
 		</>

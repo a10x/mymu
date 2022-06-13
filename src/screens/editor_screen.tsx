@@ -9,25 +9,28 @@ export const EditorScreen = (props: any) =>{
 	const imgRef = useRef(new Image());
 	const [size, setSize] = useState({width: 100, height: 200});
 
+	const loadImage = async () =>{
+		console.log(props.file);
+		const fileContents = await Neutralino.filesystem.readBinaryFile(props.file);
+		const imageSrc = btoa(Array.from(new Uint8Array(fileContents)).map(byte => String.fromCharCode(byte)).join(""));
+		imgRef.current.src = `data:image/png;base64,${imageSrc}`;
+		imgRef.current.onload = () =>{
+			console.log("image loaded");
+			console.log(imgRef.current.width, imgRef.current.height, 1);
+			setSize({width: imgRef.current.width, height: imgRef.current.height});
+		};
+		imgRef.current.onerror = (e) =>{
+			console.log("Image could not be loaded");
+			console.log(e);
+		};
+	};
+
 	useEffect(()=>{
+		console.log(props.file);
 		if(props.file === "null") return;
 
-		(async () =>{
-			console.log(props.file);
-			const fileContents = await Neutralino.filesystem.readBinaryFile(props.file);
-			const imageSrc = btoa(Array.from(new Uint8Array(fileContents)).map(byte => String.fromCharCode(byte)).join(""));
-			imgRef.current.src = `data:image/png;base64,${imageSrc}`;
-			imgRef.current.onload = () =>{
-				console.log("image loaded");
-				console.log(`${imgRef.current.width } : ${imgRef.current.height}`);
-				setSize({width: imgRef.current.width, height: imgRef.current.height});
-			};
-			imgRef.current.onerror = (e) =>{
-				console.log("Image could not be loaded");
-				console.log(e);
-			};
-
-		})();
+		//loadImage();
+		
 		/*const image = new Image();
 		image.src = props.file;
 		image.onload = () =>{
@@ -42,7 +45,7 @@ export const EditorScreen = (props: any) =>{
 	return (
 		<>
 			<EditorToolbar />
-			<EditorCanvas width={imgRef.current.width} height={imgRef.current.height} imageSrc={imgRef.current.src} />
+			<EditorCanvas imageSrc={props.file} />
 		</>
 	);
 
